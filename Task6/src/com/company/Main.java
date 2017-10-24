@@ -10,7 +10,7 @@ public class Main {
                 list.elements[list.count] = element;
                 list.count++;
             } else {
-                System.err.println("Нет места");
+                System.err.println("Array is full");
             }
         }
     static void deleteElement(ArrayList list, int index){
@@ -20,7 +20,7 @@ public class Main {
             }
             list.count--;
         } else {
-            System.err.println("Неверный индекс");
+            System.err.println("Wrong index");
         }
     }
     static void printElements(ArrayList list) {
