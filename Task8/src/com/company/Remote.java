@@ -20,27 +20,27 @@ public class Remote {
 //                    "4 - Previous channel"
 //                    "5 - Switch to channel NUMBER"
 //                    "0 - TURN OFF"
-            switch (command){
-                case 1 : {
-                    tv.ShowProgram(channelNumber);
-                }break;
-                case 2 : {
-                    tv.switchChannels(channelNumber);
-                }break;
-                case 3 : {
-                    if ((channelNumber + 1) <= tv.getChannelsLength()){
+        switch (command){
+            case 1 : {
+                tv.ShowProgram(channelNumber);
+            }break;
+            case 2 : {
+                tv.switchChannels(channelNumber);
+            }break;
+            case 3 : {
+                if ((channelNumber + 1) <= tv.getChannelsLength()){
                     channelNumber++;
-                    } else {
-                        System.out.println("It is LAST channel");
-                    }
-                }break;
-                case 4 : {
-                    if ((channelNumber - 1) >= 0 ){
-                        channelNumber--;
-                    } else {
-                        System.out.println("It is FIRST channel");
-                    }
-                }break;
+                } else {
+                    System.out.println("It is LAST channel");
+                }
+            }break;
+            case 4 : {
+                if ((channelNumber - 1) >= 0 ){
+                    channelNumber--;
+                } else {
+                    System.out.println("It is FIRST channel");
+                }
+            }break;
         }
     }
 

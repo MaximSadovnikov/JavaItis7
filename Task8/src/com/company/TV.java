@@ -21,8 +21,8 @@ public class TV {
     public void ShowProgram ( int channelNumber){
         if (channels[channelNumber] == null) {
             System.err.println("пшпшпшшпшппшшпшпшпш");
-    } else {
-           channels[channelNumber].showAllPrograms();
+        } else {
+            channels[channelNumber].showAllPrograms();
         }
     }
     public int getChannelsLength(){

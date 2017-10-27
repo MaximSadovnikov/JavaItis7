@@ -6,7 +6,7 @@ public class Channel {
     private Program programs[];
     private int count = 0;
 
-   private String name;
+    private String name;
 
     Channel(String name) {
         this.programs = new Program[5];
@@ -36,6 +36,6 @@ public class Channel {
         }
     }
     int getProgramLength(){
-      return programs.length;
+        return programs.length;
     }
 }

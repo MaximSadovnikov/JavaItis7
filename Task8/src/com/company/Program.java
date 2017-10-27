@@ -9,8 +9,8 @@ public class Program {
     private LocalTime finishTime;
 
     public Program(String name, String startTime, String finishTime) {
-            // используем функцию parse класса LocalTime для
-            // преобразования времени в виде строки в формат, понятный java
+        // используем функцию parse класса LocalTime для
+        // преобразования времени в виде строки в формат, понятный java
         this.startTime = LocalTime.parse(startTime);
         this.finishTime = LocalTime.parse(finishTime);
         this.name = name;
