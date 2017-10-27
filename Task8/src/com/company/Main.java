@@ -73,7 +73,6 @@ public class Main {
                     break;
                 }
             }
-
             while (true) {
                 System.out.println("MENU:" + '\n' + "1 - Show programs on this channel" + '\n' + "2 - Show program that going now" + '\n' + "3 - Next channel" + '\n' + "4 - Previous channel" + '\n' + "5 - Switch to channel NUMBER" + '\n' + "0 - TURN OFF");
                 int command = scanner.nextInt();
