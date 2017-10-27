@@ -1,4 +1,5 @@
 package com.company;
+
 public class TV {
     private Channel channels[];
     private int count = 0;
@@ -11,21 +12,24 @@ public class TV {
         this.channels[count] = channel;
         count++;
     }
-    public void switchChannels(int channelNumber){
+
+    public void switchChannels(int channelNumber) {
         if (channels[channelNumber] == null) {
             System.err.println("пшпшпшшпшппшшпшпшпш");
         } else {
             channels[channelNumber].showCurrentProgram();
         }
     }
-    public void ShowProgram ( int channelNumber){
+
+    public void ShowProgram(int channelNumber) {
         if (channels[channelNumber] == null) {
             System.err.println("пшпшпшшпшппшшпшпшпш");
         } else {
             channels[channelNumber].showAllPrograms();
         }
     }
-    public int getChannelsLength(){
+
+    public int getChannelsLength() {
         return channels.length;
     }
 }

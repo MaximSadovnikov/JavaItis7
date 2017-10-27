@@ -28,14 +28,16 @@ public class Channel {
                     programs[i].getFinishTimeTime().format(formatter) + " - " + programs[i].getName());
         }
     }
-    void showCurrentProgram(){
-        for (int i = 0 ; i < count ; i++){
+
+    void showCurrentProgram() {
+        for (int i = 0; i < count; i++) {
             if (programs[i].isGoingNow() == true) {
                 System.out.println(programs[i].getName());
             }
         }
     }
-    int getProgramLength(){
+
+    int getProgramLength() {
         return programs.length;
     }
 }

@@ -27,12 +27,15 @@ public class Program {
             return false;
         }
     }
+
     LocalTime getStartTime() {
         return startTime;
     }
+
     LocalTime getFinishTimeTime() {
         return finishTime;
     }
+
     String getName() {
         return name;
     }
