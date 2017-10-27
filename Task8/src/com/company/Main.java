@@ -40,16 +40,16 @@ public class Main {
         tv = new TV();
         Remote remote = new Remote();
         System.out.println("TV setup:");
-        while (true ) {
+        while (true) {
             System.out.println("1. Создать канал" + '\n' + "2. Выход");
             int command = scanner.nextInt();
             switch (command) {
-                case 1 : {
+                case 1: {
                     System.out.println("Введите количество передач. (1 - 5)");
                     int programsCount = scanner.nextInt();
-                    if(programsCount < 1){
+                    if (programsCount < 1) {
                         programsCount = 1;
-                    }else if (programsCount > 5) {
+                    } else if (programsCount > 5) {
                         programsCount = 5;
                     }
                     System.out.println("Введите название канала.");
@@ -63,22 +63,23 @@ public class Main {
                         Program program = new Program(name, startTime, finishTime);
                         channel.addProgram(program);
                     }
-                    tv.add(channel) ;
-                }break;
-                case 2 : {
+                    tv.add(channel);
+                }
+                break;
+                case 2: {
                     System.exit(0);
                 }
             }
         }
         int chanNum = 0;
         tv.switchChannels(chanNum);
-        while ( true ) {
+        while (true) {
             System.out.println("MENU:" + '\n' + "1 - Show programs on this channel" + '\n' + "2 - Show program that going now" + '\n' + "3 - Next channel" + '\n' + "4 - Previous channel" + '\n' + "5 - Switch to channel NUMBER" + '\n' + "0 - TURN OFF");
             int command = scanner.nextInt();
-            if (command == 0 ){
+            if (command == 0) {
                 System.out.println("TV is OFF");
                 System.exit(0);
-            } else if (command == 5){
+            } else if (command == 5) {
                 System.out.println("Enter channel number");
                 int channelNumber = scanner.nextInt();
                 remote.switchChannelNumber(channelNumber);
