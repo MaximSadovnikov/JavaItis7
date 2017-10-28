@@ -4,6 +4,13 @@ public class Remote {
     private int channelNumber = 0;
     private TV tv = new TV();
 
+    public Remote(){
+        this.tv = new TV();
+    }
+    public void add(TV tv) {
+        this.tv = tv;
+    }
+
     public void switchChannelNumber(int Number) {
         if (0 <= Number && Number < tv.getChannelsLength()) {
             this.channelNumber = Number;

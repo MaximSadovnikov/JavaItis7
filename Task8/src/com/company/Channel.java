@@ -9,21 +9,23 @@ public class Channel {
 
     private String name;
 
-    public Channel(String name , int ProgLength) {
-        if (ProgLength < 1) {
+    public Channel(String name , int ProgLen) {
+        if (ProgLen < 1) {
             this.ProgramLength = 1;
-        } else if (ProgLength > 5) {
+        } else if (ProgLen > 5) {
             this.ProgramLength = 5;
         } else {
-            this.ProgramLength = ProgLength;
+            this.ProgramLength = ProgLen;
         }
         this.programs = new Program[ProgramLength];
         this.name = name;
     }
 
     void addProgram(Program program) {
-        this.programs[count] = program;
-        count++;
+        if(count < ProgramLength){
+            this.programs[count] = program;
+            count++;
+        }
     }
 
     void showAllPrograms() {

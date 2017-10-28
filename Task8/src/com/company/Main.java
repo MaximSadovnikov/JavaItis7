@@ -37,8 +37,7 @@ public class Main {
 //                TV tv = new TV();
 //                tv.add(firstChannel);
 //                tv.add(ntv);
-            TV tv;
-            tv = new TV();
+            TV tv = new TV();
             System.out.println("TV setup:");
             boolean setup = true;
             while (setup == true) {
@@ -52,9 +51,11 @@ public class Main {
                         String channelName = scanner.next();
                         Channel channel = new Channel(channelName, programsCount);
                         for (int i = 0; i < programsCount; i++) {
-                            System.out.println("Введите время начала, время завершения и название канала.");
+                            System.out.print("Введите время начала        : ");
                             String startTime = scanner.next();
+                            System.out.print("Введите время завершения    : ");
                             String finishTime = scanner.next();
+                            System.out.print("Введите название программы  : ");
                             String name = scanner.next();
                             Program program = new Program(name, startTime, finishTime);
                             channel.addProgram(program);
@@ -65,11 +66,18 @@ public class Main {
                     case 2: {
                         setup = false;
                     }
+                    remote.add(tv);
                     break;
                 }
             }
             while (true) {
-                System.out.println("MENU:" + '\n' + "1 - Show programs on this channel" + '\n' + "2 - Show program that going now" + '\n' + "3 - Next channel" + '\n' + "4 - Previous channel" + '\n' + "5 - Switch to channel NUMBER" + '\n' + "0 - TURN OFF");
+                System.out.println("MENU:" + '\n' +
+                        "1 - Show programs on this channel" + '\n' +
+                        "2 - Show program that going now" + '\n' +
+                        "3 - Next channel" + '\n' +
+                        "4 - Previous channel" + '\n' +
+                        "5 - Switch to channel NUMBER" + '\n' +
+                        "0 - TURN OFF");
                 int command = scanner.nextInt();
                 if (command == 0) {
                     System.out.println("TV is OFF");
