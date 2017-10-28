@@ -50,7 +50,7 @@ public class Main {
                         int programsCount = scanner.nextInt();
                         System.out.println("Введите название канала.");
                         String channelName = scanner.next();
-                        Channel channel = new Channel(channelName,programsCount);
+                        Channel channel = new Channel(channelName, programsCount);
                         for (int i = 0; i < programsCount; i++) {
                             System.out.println("Введите время начала, время завершения и название канала.");
                             String startTime = scanner.next();
