@@ -48,14 +48,9 @@ public class Main {
                     case 1: {
                         System.out.println("Введите количество передач. (1 - 5)");
                         int programsCount = scanner.nextInt();
-                        if (programsCount < 1) {
-                            programsCount = 1;
-                        } else if (programsCount > 5) {
-                            programsCount = 5;
-                        }
                         System.out.println("Введите название канала.");
                         String channelName = scanner.next();
-                        Channel channel = new Channel(channelName);
+                        Channel channel = new Channel(channelName,programsCount);
                         for (int i = 0; i < programsCount; i++) {
                             System.out.println("Введите время начала, время завершения и название канала.");
                             String startTime = scanner.next();
@@ -73,7 +68,6 @@ public class Main {
                     break;
                 }
             }
-
             while (true) {
                 System.out.println("MENU:" + '\n' + "1 - Show programs on this channel" + '\n' + "2 - Show program that going now" + '\n' + "3 - Next channel" + '\n' + "4 - Previous channel" + '\n' + "5 - Switch to channel NUMBER" + '\n' + "0 - TURN OFF");
                 int command = scanner.nextInt();

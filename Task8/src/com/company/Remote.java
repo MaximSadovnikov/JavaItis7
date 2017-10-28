@@ -30,7 +30,7 @@ public class Remote {
             }
             break;
             case 3: {
-                if ((channelNumber + 1) <= tv.getChannelsLength()) {
+                if ((channelNumber + 1) <= tv.getCount()) {
                     channelNumber++;
                 } else {
                     System.out.println("It is LAST channel");

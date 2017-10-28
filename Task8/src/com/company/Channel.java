@@ -5,11 +5,19 @@ import java.time.format.DateTimeFormatter;
 public class Channel {
     private Program programs[];
     private int count = 0;
+    private int ProgramLength = 0;
 
     private String name;
 
-    Channel(String name) {
-        this.programs = new Program[5];
+    public Channel(String name , int ProgLength) {
+        if (ProgLength < 1) {
+            this.ProgramLength = 1;
+        } else if (ProgLength > 5) {
+            this.ProgramLength = 5;
+        } else {
+            this.ProgramLength = ProgLength;
+        }
+        this.programs = new Program[ProgramLength];
         this.name = name;
     }
 
