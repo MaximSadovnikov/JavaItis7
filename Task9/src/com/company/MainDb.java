@@ -1,9 +1,9 @@
 package com.company;
+
 import java.sql.*;
 import java.util.Scanner;
 
-public class MainDb
-{
+public class MainDb {
     private static final String URL = "jdbc:postgresql://localhost:5433/owner";
     private static final String USER = "postgres";
     private static final String PASSWORD = "password3926";
@@ -34,8 +34,9 @@ public class MainDb
                     preparedStatement.setString(1, name);
                     preparedStatement.setInt(2, age);
                     preparedStatement.execute();
-                }break;
-                case 2 : {
+                }
+                break;
+                case 2: {
                     System.out.println("Введите название:");
                     String name = scanner.next();
                     System.out.println("Введите id пользователя:");
@@ -45,8 +46,9 @@ public class MainDb
                     preparedStatement.setString(1, name);
                     preparedStatement.setInt(2, userid);
                     preparedStatement.execute();
-                }break;
-                case 3 : {
+                }
+                break;
+                case 3: {
                     ResultSet resultSet = statement.executeQuery("SELECT * FROM owner;");
                     while (resultSet.next()) {
                         System.out.println(
@@ -55,8 +57,9 @@ public class MainDb
                                         resultSet.getInt("age")
                         );
                     }
-                }break;
-                case 4 : {
+                }
+                break;
+                case 4: {
                     ResultSet resultSet = statement.executeQuery("SELECT * FROM car;");
                     while (resultSet.next()) {
                         System.out.println(
@@ -64,8 +67,9 @@ public class MainDb
                                         resultSet.getString("model") + " "
                         );
                     }
-                }break;
-                case 5 : {
+                }
+                break;
+                case 5: {
                     ResultSet resultSet = statement.executeQuery("SELECT name, model FROM owner INNER JOIN car ON owner.id = car.owner_id;");
                     while (resultSet.next()) {
                         System.out.println(
@@ -73,8 +77,9 @@ public class MainDb
                                         resultSet.getString("model") + " "
                         );
                     }
-                }break;
-                case 0 : {
+                }
+                break;
+                case 0: {
                     System.exit(0);
                 }
             }
