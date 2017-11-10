@@ -12,12 +12,6 @@ public class MainDb {
         Connection connection =
                 DriverManager.getConnection(URL, USER, PASSWORD);
 
-        // Statement - выражение, которое можно запустить в Базе данных
-//        Меню:
-//        1) Добавить пользователя
-//        2) Добавить пользователю машину
-//        3) Посмотреть всех пользователей
-//        4) Посмотреть все машины
         Scanner scanner = new Scanner(System.in);
         Statement statement = connection.createStatement();
         while (true) {
@@ -87,26 +81,28 @@ public class MainDb {
                     }
                 }
                 break;
-                case 3 :{
+                case 3: {
                     System.out.println("Введите id номер машины, которую хотите удалить:");
                     int userid = scanner.nextInt();
                     PreparedStatement preparedStatement = connection.prepareStatement(
                             "DELETE FROM car WHERE owner_id = (?)");
-                    preparedStatement.setInt(1,userid);
+                    preparedStatement.setInt(1, userid);
                     preparedStatement.execute();
-                }break;
-                case 4 : {
+                }
+                break;
+                case 4: {
                     System.out.println("Введите id номер человека, которого хотите удалить:");
                     int userid = scanner.nextInt();
                     PreparedStatement preparedStatement1 = connection.prepareStatement(
                             "DELETE FROM car WHERE owner_id = (?)");
                     PreparedStatement preparedStatement2 = connection.prepareStatement(
                             "DELETE  FROM owner WHERE id = (?)");
-                    preparedStatement1.setInt(1,userid);
-                    preparedStatement2.setInt(1,userid);
+                    preparedStatement1.setInt(1, userid);
+                    preparedStatement2.setInt(1, userid);
                     preparedStatement1.execute();
                     preparedStatement2.execute();
-                }break;
+                }
+                break;
                 case 0: {
                     System.exit(0);
                 }
