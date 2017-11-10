@@ -28,6 +28,7 @@ public class TV {
             channels[channelNumber].showAllPrograms();
         }
     }
+
     public int getCount() {
         return count;
     }

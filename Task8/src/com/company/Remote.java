@@ -4,9 +4,10 @@ public class Remote {
     private int channelNumber = 0;
     private TV tv = new TV();
 
-    public Remote(){
+    public Remote() {
         this.tv = new TV();
     }
+
     public void add(TV tv) {
         this.tv = tv;
     }
@@ -37,7 +38,7 @@ public class Remote {
             }
             break;
             case 3: {
-                if ((channelNumber + 1) <= tv.getCount()) {
+                if ((channelNumber) <= tv.getCount()) {
                     channelNumber++;
                 } else {
                     System.out.println("It is LAST channel");

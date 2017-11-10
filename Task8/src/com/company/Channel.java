@@ -9,7 +9,7 @@ public class Channel {
 
     private String name;
 
-    public Channel(String name , int ProgLen) {
+    public Channel(String name, int ProgLen) {
         if (ProgLen < 1) {
             this.ProgramLength = 1;
         } else if (ProgLen > 5) {
@@ -22,7 +22,7 @@ public class Channel {
     }
 
     void addProgram(Program program) {
-        if(count < ProgramLength){
+        if (count < ProgramLength) {
             this.programs[count] = program;
             count++;
         }
@@ -47,7 +47,4 @@ public class Channel {
         }
     }
 
-    int getProgramLength() {
-        return programs.length;
-    }
 }
