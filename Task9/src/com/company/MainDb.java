@@ -21,7 +21,15 @@ public class MainDb {
         Scanner scanner = new Scanner(System.in);
         Statement statement = connection.createStatement();
         while (true) {
-            System.out.println("Menu : " + '\n' + "1 - Add user" + '\n' + "2 - Add car to user" + '\n' + "3 - Show all users" + '\n' + "4 - Show all cars" + '\n' + "5 - Show cars and owners" + '\n' + "0 - EXIT");
+            System.out.println("Menu : " + '\n' +
+                    "1 - Add user" + '\n' +
+                    "2 - Add car to user" + '\n' +
+                    "3 - Delete car" + '\n' +
+                    "4 - Delete owners with car" + '\n' +
+                    "5 - Show owners" + '\n' +
+                    "6 - Show cars" + '\n' +
+                    "7 - Show owners with cars" + '\n' +
+                    "0 - EXIT");
             int command = scanner.nextInt();
             switch (command) {
                 case 1: {
@@ -48,7 +56,7 @@ public class MainDb {
                     preparedStatement.execute();
                 }
                 break;
-                case 3: {
+                case 5: {
                     ResultSet resultSet = statement.executeQuery("SELECT * FROM owner;");
                     while (resultSet.next()) {
                         System.out.println(
@@ -59,7 +67,7 @@ public class MainDb {
                     }
                 }
                 break;
-                case 4: {
+                case 6: {
                     ResultSet resultSet = statement.executeQuery("SELECT * FROM car;");
                     while (resultSet.next()) {
                         System.out.println(
@@ -69,7 +77,7 @@ public class MainDb {
                     }
                 }
                 break;
-                case 5: {
+                case 7: {
                     ResultSet resultSet = statement.executeQuery("SELECT name, model FROM owner INNER JOIN car ON owner.id = car.owner_id;");
                     while (resultSet.next()) {
                         System.out.println(
@@ -79,6 +87,26 @@ public class MainDb {
                     }
                 }
                 break;
+                case 3 :{
+                    System.out.println("Введите id номер машины, которую хотите удалить:");
+                    int userid = scanner.nextInt();
+                    PreparedStatement preparedStatement = connection.prepareStatement(
+                            "DELETE FROM car WHERE owner_id = (?)");
+                    preparedStatement.setInt(1,userid);
+                    preparedStatement.execute();
+                }break;
+                case 4 : {
+                    System.out.println("Введите id номер человека, которого хотите удалить:");
+                    int userid = scanner.nextInt();
+                    PreparedStatement preparedStatement1 = connection.prepareStatement(
+                            "DELETE FROM car WHERE owner_id = (?)");
+                    PreparedStatement preparedStatement2 = connection.prepareStatement(
+                            "DELETE  FROM owner WHERE id = (?)");
+                    preparedStatement1.setInt(1,userid);
+                    preparedStatement2.setInt(1,userid);
+                    preparedStatement1.execute();
+                    preparedStatement2.execute();
+                }break;
                 case 0: {
                     System.exit(0);
                 }
